@@ -1,6 +1,12 @@
 import qrcode
 
-qr_data='www.naver.com'
-qr_image=qrcode.make(qr_data)
+with open('sitelist.txt','rt',encoding='UTF8') as f:
+  read_lines=f.readlines()
+  for line in read_lines:
+    line=line.strip()
+    print(line)
 
-qr_image.save(qr_data+'png')
+    qr_data=line
+    qr_image=qrcode.make(qr_data)
+
+    qr_image.save(qr_data+'.png')
